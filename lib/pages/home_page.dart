@@ -40,6 +40,9 @@ class HomePage extends StatelessWidget {
                     color: kFontPrimaryColor.withOpacity(0.85),
                   ),
                 ),
+                const SizedBox(
+                  height: 10.0,
+                ),
                 Expanded(
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
@@ -58,7 +61,7 @@ class HomePage extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: ButtonNormalWidget(
                 text: "Escanear QR",
-                icon: 'virus',
+                icon: 'qr',
                 onTap: () {},
               ),
             ),
