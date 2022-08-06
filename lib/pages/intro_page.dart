@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codigo_vacunapp/utils/constants.dart';
+import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
+import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class IntroPage extends StatelessWidget {
@@ -17,7 +18,7 @@ class IntroPage extends StatelessWidget {
             Text(
               "Tu carnet de vacunación",
               style: TextStyle(
-                fontSize: 40.0,
+                fontSize: 44.0,
                 fontWeight: FontWeight.w600,
                 height: 1,
                 color: kFontPrimaryColor,
@@ -37,29 +38,7 @@ class IntroPage extends StatelessWidget {
             const SizedBox(
               height: 12.0,
             ),
-            SizedBox(
-              width: double.infinity,
-              height: 52.0,
-              child: ElevatedButton.icon(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14.0),
-                  ),
-                ),
-                icon: SvgPicture.asset(
-                  'assets/icons/virus.svg',
-                  color: Colors.white,
-                ),
-                label: const Text(
-                  "Iniciar ahora",
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
+            ButtonNormalWidget(),
           ],
         ),
       ),
