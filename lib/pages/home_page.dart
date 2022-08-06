@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(14.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Mis carnets registrados",
@@ -36,11 +37,15 @@ class HomePage extends StatelessWidget {
                 color: kFontPrimaryColor.withOpacity(0.85),
               ),
             ),
-            ItemListWidget(),
-            ItemListWidget(),
-            ItemListWidget(),
-            ItemListWidget(),
-            ItemListWidget(),
+            Expanded(
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index){
+                  return  ItemListWidget();
+                },
+              ),
+            ),
           ],
         ),
       ),

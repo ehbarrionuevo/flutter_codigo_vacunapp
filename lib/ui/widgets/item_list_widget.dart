@@ -12,6 +12,7 @@ class ItemListWidget extends StatelessWidget {
     return Container(
       padding:
       const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(14.0),
