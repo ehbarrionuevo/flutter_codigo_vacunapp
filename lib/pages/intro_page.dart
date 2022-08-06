@@ -41,6 +41,9 @@ class IntroPage extends StatelessWidget {
             ButtonNormalWidget(
               text: "Iniciar ahora",
               icon: "virus",
+              onTap: (){
+                print("1111");
+              },
             ),
           ],
         ),
