@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_vacunapp/pages/scanner_qr_page.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/item_list_widget.dart';
@@ -62,7 +63,9 @@ class HomePage extends StatelessWidget {
               child: ButtonNormalWidget(
                 text: "Escanear QR",
                 icon: 'qr',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ScannerQRPage()));
+                },
               ),
             ),
           ],
