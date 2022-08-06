@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ButtonNormalWidget extends StatelessWidget {
@@ -25,7 +26,7 @@ class ButtonNormalWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14.0),
           ),
-          primary: Color(0xff7248E5),
+          primary: kBrandPrimaryColor,
         ),
         icon: SvgPicture.asset(
           'assets/icons/$icon.svg',
