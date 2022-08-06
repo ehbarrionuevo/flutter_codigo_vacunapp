@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
+import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/item_list_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -26,24 +27,39 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(14.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            Text(
-              "Mis carnets registrados",
-              style: TextStyle(
-                fontSize: 15.0,
-                fontWeight: FontWeight.w600,
-                color: kFontPrimaryColor.withOpacity(0.85),
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Mis carnets registrados",
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w600,
+                    color: kFontPrimaryColor.withOpacity(0.85),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ItemListWidget();
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 60.0,
+                ),
+              ],
             ),
-            Expanded(
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: 10,
-                itemBuilder: (BuildContext context, int index){
-                  return  ItemListWidget();
-                },
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: ButtonNormalWidget(
+                text: "Escanear QR",
+                icon: 'virus',
+                onTap: () {},
               ),
             ),
           ],
