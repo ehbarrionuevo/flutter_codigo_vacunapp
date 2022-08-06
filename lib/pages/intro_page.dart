@@ -38,7 +38,10 @@ class IntroPage extends StatelessWidget {
             const SizedBox(
               height: 12.0,
             ),
-            ButtonNormalWidget(),
+            ButtonNormalWidget(
+              text: "Iniciar ahora",
+              icon: "virus",
+            ),
           ],
         ),
       ),
