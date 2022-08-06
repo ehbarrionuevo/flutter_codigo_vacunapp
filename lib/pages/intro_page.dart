@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_vacunapp/pages/home_page.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,7 +43,7 @@ class IntroPage extends StatelessWidget {
               text: "Iniciar ahora",
               icon: "virus",
               onTap: (){
-                print("1111");
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
               },
             ),
           ],
