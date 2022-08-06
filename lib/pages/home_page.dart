@@ -22,6 +22,18 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      body: Column(
+        children: [
+          Text(
+            "Mis carnets registrados",
+            style: TextStyle(
+              fontSize: 15.0,
+              fontWeight: FontWeight.w600,
+              color: kFontPrimaryColor.withOpacity(0.85),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
