@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/utils/constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({Key? key}) : super(key: key);
@@ -46,8 +47,11 @@ class IntroPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14.0),
                   ),
                 ),
-                icon: Icon(Icons.add),
-                label: Text(
+                icon: SvgPicture.asset(
+                  'assets/icons/virus.svg',
+                  color: Colors.white,
+                ),
+                label: const Text(
                   "Iniciar ahora",
                   style: TextStyle(
                     fontSize: 16.0,
