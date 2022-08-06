@@ -36,6 +36,18 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 12,
+                    offset: const Offset(4, 4),
+                  ),
+                ],
+              ),
               child: Row(
                 children: [
                   Column(
