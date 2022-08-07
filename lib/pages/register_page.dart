@@ -81,7 +81,7 @@ class RegisterPage extends StatelessWidget {
                 text: "Registrar carnet",
                 icon: 'check',
                 onTap: (){
-                  DBAdmin.db.checkDatabase();
+                  DBAdmin.db.insertLicense();
                 },
               ),
             ),
