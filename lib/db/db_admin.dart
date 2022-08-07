@@ -10,8 +10,6 @@ class DBAdmin {
   static final DBAdmin db = DBAdmin._();
   DBAdmin._();
 
-
-
   Future<Database?> checkDatabase() async {
     if (_myDatabase != null) {
       return _myDatabase;

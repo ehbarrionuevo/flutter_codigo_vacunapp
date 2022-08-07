@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_vacunapp/db/db_admin.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/textfield_normal_widget.dart';
@@ -80,7 +81,7 @@ class RegisterPage extends StatelessWidget {
                 text: "Registrar carnet",
                 icon: 'check',
                 onTap: (){
-
+                  DBAdmin.db.checkDatabase();
                 },
               ),
             ),
