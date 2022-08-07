@@ -28,14 +28,14 @@ class DBAdmin {
     });
   }
 
-  Future<int> insertLicense() async {
+  Future<int> insertLicense(String name, String dni, String url) async {
     final Database? db = await checkDatabase();
     int res = await db!.insert(
       "LICENSE",
       {
-        "name": "Dario Lopez",
-        "dni": "11221122",
-        "url": "https://workflowy.com/",
+        "name": name,
+        "dni": dni,
+        "url": url,
       },
     );
     return res;
