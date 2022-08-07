@@ -1,4 +1,6 @@
+
 import 'dart:io';
+import 'package:flutter_codigo_vacunapp/models/license_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -28,15 +30,16 @@ class DBAdmin {
     });
   }
 
-  Future<int> insertLicense(String name, String dni, String url) async {
+  Future<int> insertLicense(LicenseModel licenseModel) async {
     final Database? db = await checkDatabase();
     int res = await db!.insert(
       "LICENSE",
-      {
-        "name": name,
-        "dni": dni,
-        "url": url,
-      },
+      // {
+      //   "name": licenseModel.name,
+      //   "dni": licenseModel.dni,
+      //   "url": licenseModel.url,
+      // },
+      licenseModel.toJson(),
     );
     return res;
   }

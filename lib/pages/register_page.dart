@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/db/db_admin.dart';
+import 'package:flutter_codigo_vacunapp/models/license_model.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/textfield_normal_widget.dart';
@@ -81,7 +82,13 @@ class RegisterPage extends StatelessWidget {
                 text: "Registrar carnet",
                 icon: 'check',
                 onTap: () {
-                  DBAdmin.db.insertLicense("asdasd", "1232132", "sdsds").then(
+                  LicenseModel license = LicenseModel(
+                    name: "Elvis Barrionuevo",
+                    dni: "11213123",
+                    url: url,
+                  );
+
+                  DBAdmin.db.insertLicense(license).then(
                     (value) {
                       if (value > 0) {
                         ScaffoldMessenger.of(context).showSnackBar(

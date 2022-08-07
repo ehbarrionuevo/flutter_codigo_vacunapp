@@ -10,4 +10,11 @@ class LicenseModel {
     required this.url,
   });
 
+
+  Map<String, dynamic> toJson()=> {
+    "name": name,
+    "dni": dni,
+    "url": url,
+  };
+
 }
