@@ -124,6 +124,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                     icon: 'check',
                     onTap: !isUrl
                         ? () {
+                            dataUrl = "https://fonts.google.com/specimen/Roboto";
                             Navigator.pop(context);
                             Navigator.push(
                               context,
