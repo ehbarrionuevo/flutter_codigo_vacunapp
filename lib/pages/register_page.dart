@@ -80,8 +80,29 @@ class RegisterPage extends StatelessWidget {
               child: ButtonNormalWidget(
                 text: "Registrar carnet",
                 icon: 'check',
-                onTap: (){
-                  DBAdmin.db.insertLicense();
+                onTap: () {
+                  DBAdmin.db.insertLicense().then((value) {
+                    if (value > 0) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: const Color(0xff06d6a0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14.0),
+                          ),
+                          behavior: SnackBarBehavior.floating,
+                          content: Row(
+                            children: const [
+                              Icon(Icons.check, color: Colors.white,),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text("El carnet se registró correctamente.",),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+                  });
                 },
               ),
             ),

@@ -28,7 +28,7 @@ class DBAdmin {
     });
   }
 
-  insertLicense() async {
+  Future<int> insertLicense() async {
     final Database? db = await checkDatabase();
     int res = await db!.insert(
       "LICENSE",
@@ -38,6 +38,6 @@ class DBAdmin {
         "url": "https://workflowy.com/",
       },
     );
-    print(res);
+    return res;
   }
 }
