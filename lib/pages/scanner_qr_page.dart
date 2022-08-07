@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_vacunapp/pages/register_page.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -17,10 +18,10 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
   Barcode? result;
   QRViewController? controller;
 
-  String patternUrl = r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?';
+  String patternUrl =
+      r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?';
   String dataUrl = "";
   bool isUrl = false;
-
 
   @override
   void reassemble() {
@@ -29,7 +30,6 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
       controller!.pauseCamera();
     }
     controller!.resumeCamera();
-
   }
 
   Widget _buildQrView(BuildContext context) {
@@ -52,7 +52,6 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
   }
 
   void _onQRViewCreated(QRViewController controller) {
-
     RegExp regExp = RegExp(patternUrl);
 
     setState(() {
@@ -61,7 +60,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
-        if(result != null){
+        if (result != null) {
           dataUrl = result!.code!;
           isUrl = regExp.hasMatch(dataUrl);
         }
@@ -87,16 +86,11 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
 
   @override
   Widget build(BuildContext context) {
-
     // print(dataUrl.contains("http"));
     // bool _validURL = Uri.parse(dataUrl).isAbsolute;
     // print(_validURL);
     // bool isURLValid = Uri.parse('assadasds').host.isNotEmpty;
     // print(isURLValid);
-
-
-
-
 
     return Scaffold(
       body: Column(
@@ -114,7 +108,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    isUrl ? dataUrl : "Por favor escanea un carnet",
+                    !isUrl ? dataUrl : "Por favor escanea un carnet",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
@@ -128,7 +122,19 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                   ButtonNormalWidget(
                     text: "Registrar Carnet",
                     icon: 'check',
-                    onTap: isUrl ? (){} : null,
+                    onTap: !isUrl
+                        ? () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterPage(
+                                  url: dataUrl,
+                                ),
+                              ),
+                            );
+                          }
+                        : null,
                   ),
                 ],
               ),
