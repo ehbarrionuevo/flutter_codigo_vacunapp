@@ -32,7 +32,7 @@ class ButtonNormalWidget extends StatelessWidget {
         ),
         icon: SvgPicture.asset(
           'assets/icons/$icon.svg',
-          color: Colors.white,
+          color: onTap != null ? Colors.white : Colors.black38,
         ),
         label: Text(
           text,
