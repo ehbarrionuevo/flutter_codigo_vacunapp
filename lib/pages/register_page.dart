@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/textfield_normal_widget.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
   String url;
@@ -54,7 +54,21 @@ class RegisterPage extends StatelessWidget {
                 icon: 'id-card',
                 isDNI: true,
               ),
-
+              const SizedBox(
+                height: 12.0,
+              ),
+              Text(
+                "Carnet QR",
+                style: TextStyle(
+                  color: kFontPrimaryColor.withOpacity(0.75),
+                  fontSize: 15.0
+                ),
+              ),
+              QrImage(
+                data: url,
+                version: QrVersions.auto,
+                size: 220.0,
+              ),
             ],
           ),
         ),
