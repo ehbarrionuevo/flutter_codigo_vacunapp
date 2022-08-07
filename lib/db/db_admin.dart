@@ -33,8 +33,8 @@ class DBAdmin {
     int res = await db!.insert(
       "LICENSE",
       {
-        "name": "Fiorella Montes",
-        "dni": "55332211",
+        "name": "Dario Lopez",
+        "dni": "11221122",
         "url": "https://workflowy.com/",
       },
     );
