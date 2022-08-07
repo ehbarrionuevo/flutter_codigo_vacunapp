@@ -17,7 +17,9 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
   Barcode? result;
   QRViewController? controller;
 
-  String dataUrl = "https://www.xn--nosotros-los-diseadores-8hc.com/2019/10/11/25-hermosas-paletas-de-colores-para-tu-proximo-proyecto-de-diseno/?fbclid=IwAR1ps_ebRkop6aPzEzwrsadRAqp3H3_iOsmt6Se7cafnj_-o2Nr_uFP6aos";
+  String patternUrl = r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?';
+  String dataUrl = "";
+  bool isUrl = false;
 
 
   // @override
@@ -50,13 +52,19 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
   }
 
   void _onQRViewCreated(QRViewController controller) {
+
+    RegExp regExp = RegExp(patternUrl);
+
     setState(() {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
-        print("WWWWWWWWWWWWWWWWWWWWWW ${result!.code}");
+        if(result != null){
+          dataUrl = result!.code!;
+          isUrl = regExp.hasMatch(dataUrl);
+        }
       });
     });
     controller.pauseCamera();
@@ -85,9 +93,9 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
     // print(_validURL);
     // bool isURLValid = Uri.parse('assadasds').host.isNotEmpty;
     // print(isURLValid);
-    String patternUrl = r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?';
-    RegExp regExp = RegExp(patternUrl);
-    print(regExp.hasMatch("https://boxicons.com/"));
+
+
+
 
 
     return Scaffold(
