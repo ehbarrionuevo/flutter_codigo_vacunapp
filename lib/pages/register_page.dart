@@ -44,11 +44,17 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(
                 height: 12.0,
               ),
-              TextFieldNormalWidget(),
-              TextFieldNormalWidget(),
-              TextFieldNormalWidget(),
-              TextFieldNormalWidget(),
-              TextFieldNormalWidget(),
+              TextFieldNormalWidget(
+                hintText: "Nombre completo",
+                icon: 'user',
+                isDNI: false,
+              ),
+              TextFieldNormalWidget(
+                hintText: "DNI",
+                icon: 'id-card',
+                isDNI: true,
+              ),
+
             ],
           ),
         ),
