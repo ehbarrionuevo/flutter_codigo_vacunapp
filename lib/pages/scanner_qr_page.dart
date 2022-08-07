@@ -22,15 +22,15 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
   bool isUrl = false;
 
 
-  // @override
-  // void reassemble() {
-  //   super.reassemble();
-  //   if (Platform.isAndroid) {
-  //     controller!.pauseCamera();
-  //   }
-  //   controller!.resumeCamera();
-  //
-  // }
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      controller!.pauseCamera();
+    }
+    controller!.resumeCamera();
+
+  }
 
   Widget _buildQrView(BuildContext context) {
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
@@ -103,8 +103,8 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
         children: [
           Expanded(
             flex: 4,
-            // child: _buildQrView(context),
-            child: Container(color: Colors.indigo),
+            child: _buildQrView(context),
+            //child: Container(color: Colors.indigo),
           ),
           Expanded(
             child: Container(
@@ -114,8 +114,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "https://www.xn--nosotros-los-diseadores-8hc.com/2019/10/11/25-hermosas-paletas-de-colores-para-tu-proximo-proyecto-de-diseno/?fbclid=IwAR1ps_ebRkop6aPzEzwrsadRAqp3H3_iOsmt6Se7cafnj_-o2Nr_uFP6aos",
-                    //"Por favor escanea un carnert",
+                    isUrl ? dataUrl : "Por favor escanea un carnet",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
@@ -129,7 +128,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                   ButtonNormalWidget(
                     text: "Registrar Carnet",
                     icon: 'check',
-                    onTap: null,
+                    onTap: isUrl ? (){} : null,
                   ),
                 ],
               ),
