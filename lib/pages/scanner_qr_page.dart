@@ -92,14 +92,20 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Por favor escanea un carnet",
+                    "https://www.xn--nosotros-los-diseadores-8hc.com/2019/10/11/25-hermosas-paletas-de-colores-para-tu-proximo-proyecto-de-diseno/?fbclid=IwAR1ps_ebRkop6aPzEzwrsadRAqp3H3_iOsmt6Se7cafnj_-o2Nr_uFP6aos",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 13.0,
+                    ),
                   ),
                   const SizedBox(
                     height: 10.0,
                   ),
                   ButtonNormalWidget(
                     text: "Registrar Carnet",
-                    icon: 'virus',
+                    icon: 'check',
                     onTap: () {},
                   ),
                 ],
