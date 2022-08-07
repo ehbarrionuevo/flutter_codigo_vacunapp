@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
+import 'package:flutter_codigo_vacunapp/ui/widgets/textfield_normal_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -43,42 +44,11 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(
                 height: 12.0,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
-                        offset: const Offset(4, 4),
-                        blurRadius: 12.0),
-                  ],
-                ),
-                child: TextField(
-                  style: TextStyle(
-                      fontSize: 14.0,
-                      color: kFontPrimaryColor.withOpacity(0.9)),
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Nombre completo",
-                      hintStyle: TextStyle(
-                        fontSize: 14.0,
-                        color: kFontPrimaryColor.withOpacity(0.45),
-                      ),
-                      prefixIcon: SvgPicture.asset(
-                        'assets/icons/user.svg',
-                        fit: BoxFit.scaleDown,
-                        color: kFontPrimaryColor.withOpacity(0.45),
-                      ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 18.0,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14.0),
-                        borderSide: BorderSide.none,
-                      ),
-                  ),
-                ),
-              ),
+              TextFieldNormalWidget(),
+              TextFieldNormalWidget(),
+              TextFieldNormalWidget(),
+              TextFieldNormalWidget(),
+              TextFieldNormalWidget(),
             ],
           ),
         ),
