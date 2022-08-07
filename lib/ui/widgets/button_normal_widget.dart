@@ -5,12 +5,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ButtonNormalWidget extends StatelessWidget {
   String text;
   String icon;
-  Function onTap;
+  Function? onTap;
 
   ButtonNormalWidget({
     required this.text,
     required this.icon,
-    required this.onTap,
+    this.onTap,
   });
 
   @override
@@ -19,9 +19,11 @@ class ButtonNormalWidget extends StatelessWidget {
       width: double.infinity,
       height: 52.0,
       child: ElevatedButton.icon(
-        onPressed: () {
-          onTap();
-        },
+        onPressed: onTap != null
+            ? () {
+                onTap!();
+              }
+            : null,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14.0),

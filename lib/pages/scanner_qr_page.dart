@@ -92,7 +92,8 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "https://www.xn--nosotros-los-diseadores-8hc.com/2019/10/11/25-hermosas-paletas-de-colores-para-tu-proximo-proyecto-de-diseno/?fbclid=IwAR1ps_ebRkop6aPzEzwrsadRAqp3H3_iOsmt6Se7cafnj_-o2Nr_uFP6aos",
+                    // "https://www.xn--nosotros-los-diseadores-8hc.com/2019/10/11/25-hermosas-paletas-de-colores-para-tu-proximo-proyecto-de-diseno/?fbclid=IwAR1ps_ebRkop6aPzEzwrsadRAqp3H3_iOsmt6Se7cafnj_-o2Nr_uFP6aos",
+                    "Por favor escanea un carnert",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
@@ -106,7 +107,9 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                   ButtonNormalWidget(
                     text: "Registrar Carnet",
                     icon: 'check',
-                    onTap: () {},
+                    onTap: (){
+                      print("Hola");
+                    },
                   ),
                 ],
               ),
