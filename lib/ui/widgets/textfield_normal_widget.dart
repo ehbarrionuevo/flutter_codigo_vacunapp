@@ -39,6 +39,7 @@ class TextFieldNormalWidget extends StatelessWidget {
               ]
             : [],
         decoration: InputDecoration(
+          counterText: "",
           filled: true,
           fillColor: Colors.white,
           hintText: hintText,
