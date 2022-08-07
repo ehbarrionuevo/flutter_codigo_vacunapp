@@ -87,7 +87,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
     // print(isURLValid);
     String patternUrl = r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?';
     RegExp regExp = RegExp(patternUrl);
-    print(regExp.hasMatch("https://www.tutorialkart.com/"));
+    print(regExp.hasMatch("https://boxicons.com/"));
 
 
     return Scaffold(
