@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -29,7 +30,14 @@ class TextFieldNormalWidget extends StatelessWidget {
         keyboardType: isDNI ? TextInputType.number : null,
         maxLength: isDNI ? 8 : null,
         style: TextStyle(
-            fontSize: 14.0, color: kFontPrimaryColor.withOpacity(0.9)),
+          fontSize: 14.0,
+          color: kFontPrimaryColor.withOpacity(0.9),
+        ),
+        inputFormatters: isDNI
+            ? [
+                FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+              ]
+            : [],
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
