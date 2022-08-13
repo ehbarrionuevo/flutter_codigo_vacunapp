@@ -28,7 +28,7 @@ class TextFieldNormalWidget extends StatelessWidget {
               blurRadius: 12.0),
         ],
       ),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         keyboardType: isDNI ? TextInputType.number : null,
         maxLength: isDNI ? 8 : null,
@@ -67,6 +67,20 @@ class TextFieldNormalWidget extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
         ),
+        validator: (String? value){
+
+          if(value != null && value.isEmpty){
+            return "Campo obligatorio";
+          }
+
+          if(value != null &&  value.length < 8){
+            return "El campoo debe de tener al menos 8 caracteres";
+          }
+
+
+
+          return null;
+        },
       ),
     );
   }
