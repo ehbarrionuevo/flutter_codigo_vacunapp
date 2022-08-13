@@ -23,44 +23,44 @@ class RegisterPage extends StatelessWidget {
   registerLicense(BuildContext context){
 
     if(_formKey.currentState!.validate()){
-      //
+      LicenseModel license = LicenseModel(
+        name: _fullNameController.text,
+        dni: _dniController.text,
+        url: url,
+      );
+      DBAdmin.db.insertLicense(license).then(
+            (value) {
+          if (value > 0) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: const Color(0xff06d6a0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14.0),
+                ),
+                behavior: SnackBarBehavior.floating,
+                content: Row(
+                  children: const [
+                    Icon(
+                      Icons.check,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "El carnet se registró correctamente.",
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        },
+      );
 
     }
 
-    // LicenseModel license = LicenseModel(
-    //   name: _fullNameController.text,
-    //   dni: _dniController.text,
-    //   url: url,
-    // );
-    // DBAdmin.db.insertLicense(license).then(
-    //       (value) {
-    //     if (value > 0) {
-    //       ScaffoldMessenger.of(context).showSnackBar(
-    //         SnackBar(
-    //           backgroundColor: const Color(0xff06d6a0),
-    //           shape: RoundedRectangleBorder(
-    //             borderRadius: BorderRadius.circular(14.0),
-    //           ),
-    //           behavior: SnackBarBehavior.floating,
-    //           content: Row(
-    //             children: const [
-    //               Icon(
-    //                 Icons.check,
-    //                 color: Colors.white,
-    //               ),
-    //               SizedBox(
-    //                 width: 10,
-    //               ),
-    //               Text(
-    //                 "El carnet se registró correctamente.",
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //       );
-    //     }
-    //   },
-    // );
+
   }
 
 
