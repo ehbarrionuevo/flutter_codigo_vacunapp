@@ -67,6 +67,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Expanded(
                   child: RefreshIndicator(
+                    strokeWidth: 2.2,
+                    color: kBrandPrimaryColor,
                     onRefresh: () async{
                       getData();
                     },
