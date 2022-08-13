@@ -69,12 +69,18 @@ class TextFieldNormalWidget extends StatelessWidget {
         ),
         validator: (String? value){
 
+          // if(isDNI){
+          //   return null;
+          // }
+
           if(value != null && value.isEmpty){
             return "Campo obligatorio";
           }
 
-          if(value != null &&  value.length < 8){
-            return "El campoo debe de tener al menos 8 caracteres";
+          if(isDNI){
+            if(value != null &&  value.length < 8){
+              return "Debe de tener 8 caracteres";
+            }
           }
 
 
