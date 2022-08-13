@@ -1,21 +1,32 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/models/license_model.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemListWidget extends StatelessWidget {
-
   LicenseModel model;
 
-  ItemListWidget({required this.model,});
+  ItemListWidget({
+    required this.model,
+  });
+
+  showDetailLicense(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return AlertDialog(
+          content: Column(
+            children: [],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:
-      const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -93,7 +104,9 @@ class ItemListWidget extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showDetailLicense(context);
+            },
             icon: SvgPicture.asset(
               'assets/icons/link.svg',
               color: kFontPrimaryColor.withOpacity(0.9),
