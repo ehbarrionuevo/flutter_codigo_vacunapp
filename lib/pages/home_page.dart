@@ -66,14 +66,19 @@ class _HomePageState extends State<HomePage> {
                   height: 10.0,
                 ),
                 Expanded(
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: licenses.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ItemListWidget(
-                        model: licenses[index],
-                      );
+                  child: RefreshIndicator(
+                    onRefresh: () async{
+                      getData();
                     },
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: licenses.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ItemListWidget(
+                          model: licenses[index],
+                        );
+                      },
+                    ),
                   ),
                 ),
                 const SizedBox(
