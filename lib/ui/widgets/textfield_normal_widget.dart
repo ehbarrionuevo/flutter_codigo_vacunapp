@@ -74,6 +74,10 @@ class TextFieldNormalWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(14.0),
             borderSide: BorderSide.none,
           ),
+          // errorText: "asdsadasds",
+          errorStyle: TextStyle(
+            color: Colors.redAccent,
+          ),
         ),
         validator: (String? value){
 
