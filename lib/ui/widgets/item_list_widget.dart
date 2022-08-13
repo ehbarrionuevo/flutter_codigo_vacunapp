@@ -3,6 +3,7 @@ import 'package:flutter_codigo_vacunapp/models/license_model.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ItemListWidget extends StatelessWidget {
   LicenseModel model;
@@ -56,7 +57,7 @@ class ItemListWidget extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "Elvis Barrionuevo",
+                  model.name,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: kFontPrimaryColor.withOpacity(0.90),
@@ -69,7 +70,7 @@ class ItemListWidget extends StatelessWidget {
                 Row(
                   children: [
                     SvgPicture.asset(
-                      'assets/icons/user.svg',
+                      'assets/icons/id-card.svg',
                       height: 14.0,
                       color: kFontPrimaryColor.withOpacity(0.75),
                     ),
@@ -77,7 +78,7 @@ class ItemListWidget extends StatelessWidget {
                       width: 3.0,
                     ),
                     Text(
-                      "Número de DNI",
+                      "DNI",
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         color: kFontPrimaryColor.withOpacity(0.75),
@@ -87,7 +88,7 @@ class ItemListWidget extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "123213213",
+                  model.dni,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: kFontPrimaryColor.withOpacity(0.90),
@@ -95,12 +96,16 @@ class ItemListWidget extends StatelessWidget {
                   ),
                 ),
                 Center(
-                  child: SizedBox(
-                    height: 140,
-                    width: 140,
-                    child: QrImage(
-                      data: "ASDSADASDSADSD",
-
+                  child: InkWell(
+                    onTap: (){
+                      launchUrl(Uri.parse(model.url));
+                    },
+                    child: SizedBox(
+                      height: 140,
+                      width: 140,
+                      child: QrImage(
+                        data: model.url,
+                      ),
                     ),
                   ),
                 ),
