@@ -7,11 +7,13 @@ class TextFieldNormalWidget extends StatelessWidget {
   String hintText;
   String icon;
   bool isDNI;
+  TextEditingController controller;
 
   TextFieldNormalWidget({
     required this.hintText,
     required this.icon,
     required this.isDNI,
+    required this.controller,
   });
 
   @override
@@ -27,6 +29,7 @@ class TextFieldNormalWidget extends StatelessWidget {
         ],
       ),
       child: TextField(
+        controller: controller,
         keyboardType: isDNI ? TextInputType.number : null,
         maxLength: isDNI ? 8 : null,
         style: TextStyle(

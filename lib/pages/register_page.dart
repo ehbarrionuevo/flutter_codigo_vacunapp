@@ -13,6 +13,49 @@ class RegisterPage extends StatelessWidget {
     required this.url,
   });
 
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _dniController = TextEditingController();
+
+
+  registerLicense(){
+    LicenseModel license = LicenseModel(
+      name: "Elvis Barrionuevo",
+      dni: "11213123",
+      url: url,
+    );
+
+    DBAdmin.db.insertLicense(license).then(
+          (value) {
+        if (value > 0) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: const Color(0xff06d6a0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14.0),
+              ),
+              behavior: SnackBarBehavior.floating,
+              content: Row(
+                children: const [
+                  Icon(
+                    Icons.check,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "El carnet se registró correctamente.",
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+      },
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,11 +96,13 @@ class RegisterPage extends StatelessWidget {
                     hintText: "Nombre completo",
                     icon: 'user',
                     isDNI: false,
+                    controller: _fullNameController,
                   ),
                   TextFieldNormalWidget(
                     hintText: "DNI",
                     icon: 'id-card',
                     isDNI: true,
+                    controller: _dniController,
                   ),
                   const SizedBox(
                     height: 12.0,
@@ -82,41 +127,7 @@ class RegisterPage extends StatelessWidget {
                 text: "Registrar carnet",
                 icon: 'check',
                 onTap: () {
-                  LicenseModel license = LicenseModel(
-                    name: "Elvis Barrionuevo",
-                    dni: "11213123",
-                    url: url,
-                  );
-
-                  DBAdmin.db.insertLicense(license).then(
-                    (value) {
-                      if (value > 0) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: const Color(0xff06d6a0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(14.0),
-                            ),
-                            behavior: SnackBarBehavior.floating,
-                            content: Row(
-                              children: const [
-                                Icon(
-                                  Icons.check,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "El carnet se registró correctamente.",
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      }
-                    },
-                  );
+                  registerLicense();
                 },
               ),
             ),
