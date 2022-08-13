@@ -13,10 +13,41 @@ class ItemListWidget extends StatelessWidget {
   showDetailLicense(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context){
+      builder: (BuildContext context) {
         return AlertDialog(
+          contentPadding: EdgeInsets.zero,
           content: Column(
-            children: [],
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Detalle del carnet",
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),
+              ),
+              Divider(
+                indent: 12.0,
+                endIndent: 12.0,
+              ),
+              Row(
+                children: [
+                  SvgPicture.asset(
+                    'assets/icons/user.svg',
+                    height: 14.0,
+                    color: kFontPrimaryColor.withOpacity(0.75),
+                  ),
+                  const SizedBox(
+                    width: 3.0,
+                  ),
+                  Text(
+                    "Detalle del carnet",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: kFontPrimaryColor.withOpacity(0.75),
+                      fontSize: 13.0,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         );
       },
