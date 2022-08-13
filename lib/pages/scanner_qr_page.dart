@@ -108,7 +108,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    !isUrl ? dataUrl : "Por favor escanea un carnet",
+                    isUrl ? dataUrl : "Por favor escanea un carnet",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
@@ -122,7 +122,7 @@ class _ScannerQRPageState extends State<ScannerQRPage> {
                   ButtonNormalWidget(
                     text: "Registrar Carnet",
                     icon: 'check',
-                    onTap: !isUrl
+                    onTap: isUrl
                         ? () {
                             dataUrl = "https://fonts.google.com/specimen/Roboto";
                             Navigator.pop(context);
