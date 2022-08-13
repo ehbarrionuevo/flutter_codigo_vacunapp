@@ -1,11 +1,15 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_vacunapp/models/license_model.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemListWidget extends StatelessWidget {
-  const ItemListWidget({Key? key}) : super(key: key);
+
+  LicenseModel model;
+
+  ItemListWidget({required this.model,});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +54,7 @@ class ItemListWidget extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "Fiorella de Fátima Montes",
+                  model.name,
                   style: TextStyle(
                     fontSize: 14.0,
                     color: kFontPrimaryColor.withOpacity(0.90),
@@ -79,7 +83,7 @@ class ItemListWidget extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "42322211",
+                  model.dni,
                   style: TextStyle(
                     fontSize: 14.0,
                     color: kFontPrimaryColor.withOpacity(0.90),

@@ -1,19 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/db/db_admin.dart';
+import 'package:flutter_codigo_vacunapp/models/license_model.dart';
 import 'package:flutter_codigo_vacunapp/pages/scanner_qr_page.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/button_normal_widget.dart';
 import 'package:flutter_codigo_vacunapp/ui/widgets/item_list_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  List<LicenseModel> licenses = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+  getData() async{
+    licenses = await DBAdmin.db.getLicences();
+    setState((){});
+  }
+
 
   @override
   Widget build(BuildContext context) {
-
-    DBAdmin.db.getLicences();
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -51,9 +68,11 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
-                    itemCount: 10,
+                    itemCount: licenses.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return ItemListWidget();
+                      return ItemListWidget(
+                        model: licenses[index],
+                      );
                     },
                   ),
                 ),
