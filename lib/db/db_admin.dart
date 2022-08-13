@@ -43,4 +43,21 @@ class DBAdmin {
     );
     return res;
   }
+
+  getLicences() async{
+    final Database? db = await checkDatabase();
+    List<Map<String, dynamic>> licenses =  await db!.query("License");
+    List<LicenseModel> licensesModel = [];
+
+    // licenses.forEach((element) {
+    //   LicenseModel model = LicenseModel.fromJson(element);
+    //   licensesModel.add(model);
+    // });
+    licensesModel = licenses.map((e) => LicenseModel.fromJson(e)).toList();
+
+    print(licensesModel);
+
+  }
+
+
 }

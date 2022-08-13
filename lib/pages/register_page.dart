@@ -54,6 +54,7 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
             );
+            Navigator.pop(context);
           }
         },
       );
