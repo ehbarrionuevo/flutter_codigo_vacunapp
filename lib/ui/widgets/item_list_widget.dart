@@ -17,6 +17,7 @@ class ItemListWidget extends StatelessWidget {
         return AlertDialog(
           contentPadding: EdgeInsets.zero,
           content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
@@ -38,7 +39,7 @@ class ItemListWidget extends StatelessWidget {
                     width: 3.0,
                   ),
                   Text(
-                    "Detalle del carnet",
+                    "Nombre completo",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       color: kFontPrimaryColor.withOpacity(0.75),
@@ -46,6 +47,42 @@ class ItemListWidget extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              Text(
+                "Elvis Barrionuevo",
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: kFontPrimaryColor.withOpacity(0.90),
+                  fontSize: 14.0,
+                ),
+              ),
+              Row(
+                children: [
+                  SvgPicture.asset(
+                    'assets/icons/user.svg',
+                    height: 14.0,
+                    color: kFontPrimaryColor.withOpacity(0.75),
+                  ),
+                  const SizedBox(
+                    width: 3.0,
+                  ),
+                  Text(
+                    "Número de DNI",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: kFontPrimaryColor.withOpacity(0.75),
+                      fontSize: 13.0,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                "123213213",
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: kFontPrimaryColor.withOpacity(0.90),
+                  fontSize: 14.0,
+                ),
               ),
             ],
           ),
