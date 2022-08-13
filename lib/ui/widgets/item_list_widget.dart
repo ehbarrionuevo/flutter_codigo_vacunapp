@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_codigo_vacunapp/models/license_model.dart';
 import 'package:flutter_codigo_vacunapp/ui/general/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class ItemListWidget extends StatelessWidget {
   LicenseModel model;
@@ -15,76 +16,96 @@ class ItemListWidget extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
           contentPadding: EdgeInsets.zero,
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                "Detalle del carnet",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),
-              ),
-              Divider(
-                indent: 12.0,
-                endIndent: 12.0,
-              ),
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/user.svg',
-                    height: 14.0,
-                    color: kFontPrimaryColor.withOpacity(0.75),
+          content: Container(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Center(
+                  child: Text(
+                    "Detalle del carnet",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),
                   ),
-                  const SizedBox(
-                    width: 3.0,
-                  ),
-                  Text(
-                    "Nombre completo",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
+                ),
+                Divider(
+                  indent: 12.0,
+                  endIndent: 12.0,
+                ),
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/user.svg',
+                      height: 14.0,
                       color: kFontPrimaryColor.withOpacity(0.75),
-                      fontSize: 13.0,
+                    ),
+                    const SizedBox(
+                      width: 3.0,
+                    ),
+                    Text(
+                      "Nombre completo",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        color: kFontPrimaryColor.withOpacity(0.75),
+                        fontSize: 13.0,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  "Elvis Barrionuevo",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: kFontPrimaryColor.withOpacity(0.90),
+                    fontSize: 14.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 8.0,
+                ),
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/user.svg',
+                      height: 14.0,
+                      color: kFontPrimaryColor.withOpacity(0.75),
+                    ),
+                    const SizedBox(
+                      width: 3.0,
+                    ),
+                    Text(
+                      "Número de DNI",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        color: kFontPrimaryColor.withOpacity(0.75),
+                        fontSize: 13.0,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  "123213213",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: kFontPrimaryColor.withOpacity(0.90),
+                    fontSize: 14.0,
+                  ),
+                ),
+                Center(
+                  child: SizedBox(
+                    height: 140,
+                    width: 140,
+                    child: QrImage(
+                      data: "ASDSADASDSADSD",
+
                     ),
                   ),
-                ],
-              ),
-              Text(
-                "Elvis Barrionuevo",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: kFontPrimaryColor.withOpacity(0.90),
-                  fontSize: 14.0,
                 ),
-              ),
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/user.svg',
-                    height: 14.0,
-                    color: kFontPrimaryColor.withOpacity(0.75),
-                  ),
-                  const SizedBox(
-                    width: 3.0,
-                  ),
-                  Text(
-                    "Número de DNI",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: kFontPrimaryColor.withOpacity(0.75),
-                      fontSize: 13.0,
-                    ),
-                  ),
-                ],
-              ),
-              Text(
-                "123213213",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: kFontPrimaryColor.withOpacity(0.90),
-                  fontSize: 14.0,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
